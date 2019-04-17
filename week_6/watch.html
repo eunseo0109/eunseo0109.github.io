@@ -37,9 +37,8 @@ var ig;
     	target.appendChild(opt);
   } 
   
-  var abc=document.getElementById("chong");
-	
-	abc.value="" ;
+  
+  document.getElementById("chong").innerHTML="";
   
   var def=document.getElementById("namex");
 	
@@ -100,19 +99,13 @@ function ingif(d){
     		target.appendChild(opt);
 	}
 	
-  var abc=document.getElementById("chong");
-	
-	abc.value="" ;
+  document.getElementById("chong").innerHTML="";
   
 }
 
 function nameif(frm){
-
-	var target=document.getElementById("chong");
-	
-	target.value="선택하신 " + ig + "는(은) "+ frm.value + "입니다." ;
-	target.appendChild(opt);
-	
+  
+  document.getElementById("chong").innerHTML="선택하신 " + ig + "는(은) "+ frm.value + "입니다." ;
 
 }
 
@@ -145,7 +138,7 @@ function nameif(frm){
 
 <fieldset><legend>SELECT</legend>
 
-  <input type="text" name="cong" id="chong" size="50" maxlength="50">
+  <p id="chong"> </p>
 
 </fieldset>
 
