@@ -3,22 +3,38 @@
 
 <style>
 *{ box-sizing:border-box; padding:0; margin:0; }
-
 .col-1{width:50%; height:100%;  position:absolute; padding:10px; background-color:lightskyblue;}
 .col-2{width:50%; float:right; padding:10px;}
-
+.col-3 { width:50%;text-align:left; padding:10px; background-color:lightskyblue; }
 nav {width:50%; text-align:right;}
-nav img{width:25%; height:auto; margin:40% auto;}
-
-
+nav ul {line-height:2.5em; }
+nav ul li { display:inline; margin:5px; }
+nav img{width:25%; height:auto; margin:20% auto;}
 table { width:95%; }
 table, tr, th, td { border:1px solid gray; border-collapse:collapse; text-align:center; padding:5px;}
+
+a:link {
+	color:black; background-color:transparent; text-decoration:none; }
+a:visited {
+	color:black; background-color:transparent; text-decoration:none; }
+a:hover {
+	color:pink; background-color:transparent; text-decoration:underline; }
+a:active {
+	color:black; background-color:transparent; text-decoration:none; }
+  
 </style>
 <title> 최은서의 profile </title>
 </head>
 
 <body>
 	<div>
+  <nav class="col-3">
+    <ul>
+			<li><a href="https://eunseo0109.github.io/pp/eunseo.html"> Home </a></li>
+			<li><a href="https://eunseo0109.github.io/pp/major.html"> Major </a></li>
+			<li><a href="https://eunseo0109.github.io/pp/contest.html"> Contest </a></li>
+  		</ul>
+  </nav>
 		<nav class="col-1">
 			<img src="/pp/images/profile.png" alt="me"/>
 		</nav>
