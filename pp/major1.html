@@ -1,0 +1,332 @@
+<!doctype html><!--  eunseo.html  -->
+<html><head><meta chrset="utf-8"/><meta name="viewport" content="width=device-width, inital-scale=1"/>
+
+<style>
+ *{box-sizing:border-box; padding:1px; margin: 10px 15px 15px 15px; }
+header h2 { float:left; margin:0; }
+nav ul {line-height:2.5em; height:40px; margin:0; padding:0; background-color:lightskyblue; }
+nav ul li { display:inline; margin:5px; }
+
+section { width:100%; height:700px;}
+section ul {list-style-type:none;}
+section li {background-color:pink; color:black; padding:!0px; margin-bottom:10px; box-shadow:0 1px 3px gray;}
+
+div#division1 { width:15%; float:left; font-size:12px;}
+div#division2 { width:60%; float:left; }
+div#division3 { margin:20px 40px 20px 200px; width:60%; height:400px; float:left; font-size:13px; overflow:scroll; background-color:black; color:white; }
+
+footer {height:10%; font-size:15px; text-align:center; }
+a:link {
+	color:black; background-color:transparent; text-decoration:none; }
+a:visited {
+	color:black; background-color:transparent; text-decoration:none; }
+a:hover {
+	color:red; background-color:transparent; text-decoration:underline; }
+a:active {
+	color:black; background-color:transparent; text-decoration:none; }
+</style>
+
+<title> 최은서 전공 </title>
+</head>
+
+<body>
+	<header>
+		<h2> 최은서의 전공 </h2>
+	</header>
+  
+	<br/>
+  
+	<nav>
+		<ul>
+			<li><a href="https://eunseo0109.github.io/pp/eunseo.html"> Home</a></li>
+			<li><a href="https://eunseo0109.github.io/pp/profile.html"> Profile </a></li>
+			<li><a href="https://eunseo0109.github.io/pp/contest.html"> Contest </a></li>
+  		</ul>
+	</nav>
+	
+	<section>
+
+		<div id="division1">
+
+			<ul>
+				<li><a href="https://eunseo0109.github.io/pp/cpp.html"> Major </a></li>
+				<li><a href="https://eunseo0109.github.io/pp/inp.html"> 인터넷 프로그래밍 </a></li>
+			</ul>
+
+		</div>
+    
+		<div id="division2">
+
+			<img src="/pp/images/환전씨쁠쁠.png" alt="환전" width=100% heigjt=100%>
+
+		</div>
+    
+    <div id="division2">
+
+		- 미국 코인의 단위는 센트로 코인의 종류에는 Penny(1센트), Nickel(5센트), Dime(10센트), Quarter(25센트)가 있다. <br/>코인의 개수 또는 달러와 센트 값을 주어지면 코인의 개수와 달러와 센트를 출력하는 프로그램을 작성하라.
+
+		</div>
+
+		<div id="division3">
+    
+    <xmp>
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Coin{ 
+	int m_penny, m_nickel, m_dime, m_quarter;		//동전의 갯수
+	int m_dollar, m_cent;		//동전을 환산했을 때 값
+
+public :
+	Coin();
+	Coin(int quarter, int dime, int nickel, int penny);
+	Coin(int dollar, int cent);
+
+	bool Set_Quarter(int quarter);
+	bool Set_Dime(int dime);
+	bool Set_Nickel(int nickel);
+	bool Set_Penny(int penny);
+	bool Set_Dollar(int dollar);
+	bool Set_Cent(int cent);
+	
+	int Get_Penny();
+	int Get_Nickel();
+	int Get_Dime();
+	int Get_Quarter();
+	int Get_Dollar();
+	int Get_Cent();
+
+	void Exchange_Coin_To_Dollar();
+	void Exchange_Dollar_To_Coin();
+	void Print_Mpney();
+
+};
+
+Coin::Coin() {
+
+	m_penny = 1;
+	m_dime = 1;
+	m_nickel = 1;
+	m_quarter = 1;
+
+	m_dollar = 0;
+	m_cent = 41;
+
+}
+
+Coin::Coin(int quarter, int dime, int nickel, int penny) {
+
+	m_quarter = quarter;
+	m_dime = dime;
+	m_nickel = nickel;
+	m_penny = penny;
+	
+	Exchange_Coin_To_Dollar();
+
+}
+
+Coin::Coin(int dollar, int cent) {
+
+	m_dollar = dollar;
+	m_cent = cent;
+
+	Exchange_Dollar_To_Coin();
+
+}
+
+inline int Coin::Get_Penny() {
+	return m_penny;
+}
+
+inline int Coin::Get_Nickel() {
+	return m_nickel;
+}
+
+inline int Coin::Get_Dime() {
+	return m_dime;
+}
+
+inline int Coin::Get_Quarter() {
+	return m_quarter;
+}
+
+inline int Coin::Get_Dollar() {
+	return m_dollar;
+}
+
+inline int Coin::Get_Cent() {
+	return m_cent;
+}
+
+bool Coin::Set_Penny(int penny){
+
+	if (penny < 0) {
+		return false;
+	}
+	else if (penny >= 0) {
+		m_penny = penny;
+		return true;
+	}
+
+}
+
+bool Coin::Set_Nickel(int nickel) {
+	
+	if (nickel < 0) {
+		return false;
+	}
+	else if (nickel >= 0) {
+		m_nickel = nickel;
+		return true;
+	}
+
+}
+
+bool Coin::Set_Dime(int dime) {
+
+	if (dime < 0) {
+		return false;
+	}
+	else if (dime >= 0) {
+		m_dime = dime;
+		return true;
+	}
+
+}
+
+bool Coin::Set_Quarter(int quarter) {
+
+	if (quarter < 0) {
+		return false;
+	}
+	else if (quarter >= 0) {
+		m_quarter = quarter;
+		return true;
+	}
+
+}
+
+bool Coin::Set_Dollar(int dollar) {
+
+	if (dollar < 0) {
+		return false;
+	}
+	else if (dollar >= 0) {
+		m_dollar = dollar;
+		return true;
+	}
+
+}
+
+bool Coin::Set_Cent(int cent) {
+
+	if (cent < 0) {
+		return false;
+	}
+	else if (cent >= 0) {
+		m_cent = cent;
+		return true;
+	}
+
+}
+
+void Coin::Exchange_Coin_To_Dollar() {
+
+	int c_penny, c_nickel, c_dime, c_quarter, c_total;
+
+	c_penny = m_penny * 1;
+	c_nickel = m_nickel * 5;
+	c_dime = m_dime * 10;
+	c_quarter = m_quarter * 25;
+
+	c_total = c_penny + c_nickel + c_dime + c_quarter;
+
+	m_dollar = c_total / 100;
+	m_cent = c_total % 100;
+
+}
+
+void Coin::Exchange_Dollar_To_Coin() {
+
+	int d_dollar, d_total;
+
+	d_dollar = m_dollar * 100;
+
+	d_total = d_dollar + m_cent;
+
+	m_quarter = d_total / 25;
+
+	m_dime = (d_total - (m_quarter * 25)) / 10;
+
+	m_nickel = (d_total - ((m_quarter * 25) + (m_dime * 10))) / 5;
+
+	m_penny = (d_total - ((m_quarter * 25) + (m_dime * 10) + (m_nickel * 5))) / 1;
+
+}
+
+void Coin::Print_Mpney() {
+
+	cout << "=========================================================================" << endl;
+	cout << "코인의 갯수는 " << m_quarter << " 쿼러 " << m_dime << " 다임 " << m_nickel << " 니클 " << m_penny << " 페니 이고" << endl;
+	cout << "달러로 환산하면 " << m_dollar << " 달러, " << m_cent << " 센트 입니다." << endl << endl;
+
+}
+
+int main() {
+
+	int quarter, dime, nickel, penny;
+
+	Coin co1_c = Coin(4, 5, 2, 6);
+	Coin co1_d = Coin(5, 62);
+	Coin co1;
+
+	co1_c.Print_Mpney();
+	co1_d.Print_Mpney();
+	co1.Print_Mpney();
+	
+	co1_c.Set_Quarter(7);
+	co1_c.Set_Nickel(23);
+	co1_c.Exchange_Coin_To_Dollar();
+
+	cout << "=========================================================================" << endl;
+	cout << "코인의 갯수는 " << co1_c.Get_Quarter() << " 쿼러 " << co1_c.Get_Dime() << " 다임 " << co1_c.Get_Nickel() << " 니클 " << co1_c.Get_Penny() << " 페니 이고" << endl;
+	cout << "달러로 환산하면 " << co1_c.Get_Dollar() << " 달러, " << co1_c.Get_Cent() << " 센트 입니다." << endl;
+
+	co1_d.Set_Dollar(2);
+	co1_d.Set_Cent(43);
+	co1_d.Exchange_Dollar_To_Coin();
+	co1_d.Print_Mpney();
+
+	cout << "동전의 개수를 순서대로 입력하세요(쿼러, 다임, 니클, 페니) : ";
+	cin >> quarter >> dime >> nickel >> penny;
+
+	while (co1.Set_Quarter(quarter) == 0 || co1.Set_Dime(dime) == 0 || co1.Set_Nickel(nickel) == 0 || co1.Set_Penny(penny) == 0) {
+		cout << "입력된 값 중에 음수가 있습니다." << endl;
+		cout << "0 이상의 값으로 동전의 개수를 순서대로 입력하세요(쿼러, 다임, 니클, 페니) : ";
+		cin >> quarter >> dime >> nickel >> penny;
+	}
+
+	co1.Exchange_Coin_To_Dollar();
+	co1.Print_Mpney();
+
+	return 0;
+}
+
+    </xmp>
+
+		</div>
+
+	</section>
+	
+	  <footer>
+      <a href="https://eunseo0109.github.io/pp/major.html"> 1 </a>
+      <a href="https://eunseo0109.github.io/pp/major1.html"> 2 </a>
+      <a href="https://eunseo0109.github.io/pp/major2.html"> 3 </a>
+
+    
+    </footer>
+
+
+</body>
+</html>
