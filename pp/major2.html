@@ -1,0 +1,289 @@
+<!doctype html><!--  eunseo.html  -->
+<html><head><meta chrset="utf-8"/><meta name="viewport" content="width=device-width, inital-scale=1"/>
+
+<style>
+ *{box-sizing:border-box; padding:1px; margin: 10px 15px 15px 15px; }
+header h2 { float:left; margin:0; }
+nav ul {line-height:2.5em; height:40px; margin:0; padding:0; background-color:lightskyblue; }
+nav ul li { display:inline; margin:5px; }
+section { width:100%; height:1300px;}
+section ul {list-style-type:none;}
+section li {background-color:pink; color:black; padding:!0px; margin-bottom:10px; box-shadow:0 1px 3px gray;}
+div#division1 { width:15%; float:left; font-size:12px;}
+div#division2 { width:60%; float:left; }
+div#division3 { margin:0px 0px 0px 300px; width:60%; height:400px; float:left; font-size:13px; overflow:scroll; background-color:black; color:white; }
+div#division4 { margin:0px 0px 0px 300px; width:60%; height:70px; float:left; font-size:13px;  }
+footer {height:10%; font-size:15px; text-align:center; }
+a:link {
+	color:black; background-color:transparent; text-decoration:none; }
+a:visited {
+	color:black; background-color:transparent; text-decoration:none; }
+a:hover {
+	color:red; background-color:transparent; text-decoration:underline; }
+a:active {
+	color:black; background-color:transparent; text-decoration:none; }
+</style>
+
+<title> 최은서 전공 </title>
+</head>
+
+<body>
+	<header>
+		<h2> 최은서의 전공 </h2>
+	</header>
+  
+	<br/>
+  
+	<nav>
+		<ul>
+			<li><a href="https://eunseo0109.github.io/pp/eunseo.html"> Home</a></li>
+			<li><a href="https://eunseo0109.github.io/pp/profile.html"> Profile </a></li>
+			<li><a href="https://eunseo0109.github.io/pp/contest.html"> Contest </a></li>
+  		</ul>
+	</nav>
+	
+	<section>
+
+		<div id="division1">
+
+			<ul>
+				<li><a href="https://eunseo0109.github.io/pp/cpp.html"> Major </a></li>
+				<li><a href="https://eunseo0109.github.io/pp/inp.html"> 인터넷 프로그래밍 </a></li>
+			</ul>
+
+		</div>
+    
+		<div id="division2">
+
+			<img src="/pp/images/급여씨쁠쁠.png" alt="급여" width=100% heigjt=100%>
+
+		</div>
+    
+    <div id="division4">
+
+		- 종업원에 대해 Employee 클래스를 정의하고 Employee 클래스의 멤버 변수들에 값을 세팅하고<br/> 불러 올 수 있는 접근자 함수를 정의하고 사용하는 프로그램을 작성한다.<br/>  조한 종업원의 월급을 계산하는 합수를 작성하고 출력한다.
+
+		</div>
+
+		<div id="division3">
+    
+    <xmp>
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Employee {
+protected:
+	string m_name;				// 시간
+	int m_payRate;				// 시간당 급여
+	float m_hoursWorked;		// 근무한시간
+public:
+	Employee();
+	Employee(string name, int payRate, float hoursWorked);
+	void Set_Name(string name);
+	string Get_Name();
+	void Set_PayRate(int payRate);
+	int Get_PayRate();
+	void Set_HoursWorked(float hoursWorked);
+	float Get_HoursWorked();
+	float Compute_Salary();
+	void Print_Info();
+};
+
+Employee::Employee() {
+
+	m_name = "NONE";
+	m_payRate = 0;
+	m_hoursWorked = 0.0;
+
+}
+
+Employee::Employee(string name, int payRate, float hoursWorked) {
+
+	m_name = name;
+	m_payRate = payRate;
+	m_hoursWorked = hoursWorked;
+
+}
+
+void Employee::Set_Name(string name) {
+	
+	m_name = name;
+
+}
+
+void Employee::Set_PayRate(int payRate) {
+
+	m_payRate = payRate;
+
+}
+
+void Employee::Set_HoursWorked(float hoursWorked) {
+
+	m_hoursWorked = hoursWorked;
+
+}
+
+string Employee::Get_Name() {
+
+	return m_name;
+
+}
+
+int Employee::Get_PayRate() {
+
+	return m_payRate;
+
+}
+
+float Employee::Get_HoursWorked() {
+
+	return m_hoursWorked;
+
+}
+
+float Employee::Compute_Salary() {
+
+	return m_payRate * m_hoursWorked;
+
+}
+
+void Employee::Print_Info() {
+
+	cout << "이름 : " << m_name << endl;
+	cout << "시간당 급여 : " << m_payRate << "원" << endl;
+	cout << "근무 시간 : " << (int)m_hoursWorked << "시간" << endl;
+	cout << "총급여 : " << (int)Compute_Salary() << "원" << endl << endl;
+}
+
+class Manager : public Employee {
+	bool m_fullTime;		//t-> 정규	f->비정규
+public:
+	Manager();
+	Manager(string name, int payRate, float hoursWorked, bool fullTime);
+	bool Get_FullTime();
+	void set_FullTime(bool fullTime);
+	float Compute_Salary();
+	void Print_Info();
+};
+
+Manager::Manager() {
+
+	m_fullTime = true;
+
+}
+
+Manager::Manager(string name, int payRate, float hoursWorked, bool fullTime) : Employee(name, payRate, hoursWorked) {
+
+	m_fullTime = fullTime;
+
+}
+
+bool Manager::Get_FullTime() {
+
+	return m_fullTime;
+
+}
+
+void Manager::set_FullTime(bool fullTime) {
+
+	m_fullTime = fullTime;
+
+}
+
+float Manager::Compute_Salary(){
+
+	if (m_fullTime == true) {
+
+		m_payRate *= 1.5;
+		m_hoursWorked = 40;
+
+	}
+
+	return Employee::Compute_Salary();
+
+}
+
+void Manager::Print_Info() {
+
+	if (m_fullTime == true) {
+
+		cout << "이름 : " << m_name << endl;
+		cout << "시간당 급여 : " << m_payRate << "원" << endl;
+		cout << "정규직 매니저" << endl;
+		cout << "근무시간 40시간 고정" << endl;
+		cout << "총 급여 : " << Manager::Compute_Salary() << "원" << endl << endl;
+
+	} else {
+
+		cout << "이름 : " << m_name << endl;
+		cout << "시간당 급여 : " << m_payRate << "원" << endl;
+		cout << "비정규직 매니저" << endl;
+		cout << "근무시간 : " << m_hoursWorked << "시간" << endl;
+		cout << "총 급여 : " << Employee::Compute_Salary() << "원" << endl << endl;
+
+	}
+
+}
+
+int main() {
+
+	Employee m1("장길산", 8000, 32.0);
+
+	Manager m2("홍길동", 12000, 28.0, true);
+
+	cout << "<종업원>" << endl;
+	m1.Print_Info();
+
+	m1.Set_PayRate(8500);
+	m1.Set_HoursWorked(40.0);
+
+	cout << "***** 종업원 PayRate 및 hours 변경 *****" << endl;
+	cout << "시간당 급여 : " << m1.Get_PayRate() << "원" << endl;
+	cout << "근무 시간 : " << m1.Get_HoursWorked() << "시간" << endl;
+	cout << "총 급여 : " << m1.Compute_Salary() << "원" << endl << endl;
+
+	cout << "<매니저1>" << endl;
+	m2.Print_Info();
+
+	m2.Set_PayRate(13500);
+	m2.Set_HoursWorked(35.0);
+
+	cout << "***** 매니저 PayRate 및 hours 변경 *****" << endl;
+	cout << "시간당 급여 : " << m2.Get_PayRate() << "원" << endl;
+	cout << "총 급여 : " << m2.Compute_Salary() << "원" << endl << endl;
+
+	Manager m3;
+
+	cout << "<매니저2>" << endl;
+	m3.Print_Info();
+
+	m3.Set_Name("박문수");
+	m3.Set_PayRate(12000);
+	m3.Set_HoursWorked(25.5);
+	m3.set_FullTime(false);
+
+	cout << "***** 매니저 이름, PayRate 및 hours 변경 *****" << endl;
+	m3.Print_Info();
+
+	return 0;
+
+}
+
+    </xmp>
+
+		</div>
+
+	</section>
+	
+	  <footer>
+      <a href="https://eunseo0109.github.io/pp/major.html"> 1 </a>
+      <a href="https://eunseo0109.github.io/pp/major1.html"> 2 </a>
+      <a href="https://eunseo0109.github.io/pp/major2.html"> 3 </a>
+
+    
+    </footer>
+
+
+</body>
+</html>
