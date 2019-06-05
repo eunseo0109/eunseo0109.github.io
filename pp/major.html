@@ -1,4 +1,4 @@
-<!doctype html><!--  major.html  -->
+<!doctype html><!--  inp.html  -->
 <html><head><meta chrset="utf-8"/><meta name="viewport" content="width=device-width, inital-scale=1"/>
 
 <style>
@@ -7,13 +7,13 @@ header h2 { float:left; margin:0; }
 nav ul {line-height:2.5em; height:40px; margin:0; padding:0; background-color:lightskyblue; }
 nav ul li { display:inline; margin:5px; }
 
-section {width:750px; float:left;}
+section {float:left;}
 section ul {list-style-type:none;}
 
-section section { width:auto; height:auto; float:left; }
+section section { height:auto; float:left; }
 
-div#division1 { width:30%; float:left; font-size:12px; }
-div#division2 { width:40%; float:left; }
+div#division1 { width:21%; height:500px; float:left; font-size:12px; }
+div#division2 { float:left; padding:0 0 0 5px; }
 
 a:link {
 	color:black; background-color:transparent; text-decoration:none; }
@@ -30,16 +30,19 @@ a:active {
 <style>
 table, tr, th, td {	border: 1px solid black; border-collapse:collapse; }
 
-
-td{font-size:12px;}
+table{width:110%;}
+th{ width:50px;}
+td{ height:35px; font-size:12px; text-align:center;}
 
 	.Nmajor1 { background-color:bisque; }
 	.Nmajor2 { background-color:gold; }
+	.Nmajor3 { background-color:pink; }
 	.Major1 { background-color:salmon; }
 	.Major2 { background-color:palegreen; }
 	.Major3 { background-color:mediumaquamarine; }
 	.Major4 { background-color:lightsteelblue; }
 	.Major5 { background-color:yellow; }
+	.Major6 { background-color:lightskyblue; }
   
 </style>
 
@@ -73,15 +76,67 @@ td{font-size:12px;}
 
 		</div>
     <section>
+    
+    <div id="division2">
+      	<table>
+		<caption>1학년 1학기</caption>
+		<thead>
+			<tr><th style="width:20px;"> </th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><tr>
+		</thead>
+		<tbody>
+			<tr><td>9</td><td rowspan="5"></td><td rowspan="2"></td><td rowspan="2"></td><td></td><td rowspan="10"></td></tr>
+			<tr><td>10</td><td class="Nmajor1">비전탐색<br/>우제택</td></tr>
+			<tr><td>11</td><td rowspan="2" class="Nmajor2">이산수학<br/>정한일<br/>24405</td><td rowspan="2" class="Nmajor3">소웨디<br/>김홍준<br/>6423</td><td rowspan="2"></td></tr>
+			<tr><td>12</td></tr>
+			<tr><td>1</td><td rowspan="2" class="Major1">행복코칭<br/><br/>22112</td><td rowspan="2" class="Major2">글쓰기<br/>기초<br/>조성훈<br/>22225</td><td rowspan="2" class="Major3">요가<br/>임현선<br/>18109</td></tr>
+			<tr><td>2</td><td class="Nmajor2">이산수학<br/>정한일</td></tr>
+			<tr><td>3</td><td rowspan="2" class="Major4">여성과법<br/>김영진<br/>22110</td><td rowspan="3" class="Major5">서양<br/>문명의<br/>역사<br/><br/>1310</td><td rowspan="2" class="Major6">영어강독<br/>곽면선<br/>22225</td><td rowspan="4"></td></tr>
+			<tr><td>4</td></tr>
+			<tr><td>5</td><td rowspan="2"></td><td rowspan="2"></td></tr>
+			<tr><td>6</td><td></td></tr>
+		</tbody>
+	</table>
+  
+  
+    </div>
+      
+      <div id="division2">
+	<table>
+		<caption>1학년 2학기</caption>
+		<thead>
+			<tr><th style="width:20px;"> </th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><tr>
+		</thead>
+		<tbody>
+			<tr><td>9</td><td rowspan="10"></td><td rowspan="4"></td><td rowspan="2"></td><td rowspan="6"></td><td rowspan="2" class="Nmajor1">수학2<br/>김소연<br/>1302</td></tr>
+			<tr><td>10</td></tr>
+			<tr><td>11</td><td rowspan="2" class="Nmajor2">발표와<br/>토론<br/>최명국<br/>22318</td><td rowspan="2" class="Nmajor3">영어회화1<br/>아담15706</td></tr>
+			<tr><td>12</td></tr>
+			<tr><td>1</td><td rowspan="2" class="Major1">문학과<br/>젠더<br/>임병희<br/>22224</td><td rowspan="2" class="Major2">수학과<br/>문명<br/>구기식<br/>22315</td><td></td></tr>
+			<tr><td>2</td><td rowspan="4" class="Major3">C프로<br/>그래밍<br/>염희균<br/>24403</td></tr>
+			<tr><td>3</td><td rowspan="3" class="Major4">독일<br/>문학의<br/>이해<br/>임병희<br/>22224</td><td rowspan="2" class="Major5">글쓰기<br/>심화<br/>조성훈<br/>22220</td><td rowspan="2" class="Major6">캠퍼스<br/>멘토링<br/>김민수</td></tr>
+			<tr><td>4</td></tr>
+			<tr><td>5</td><td rowspan="2"></td><td rowspan="2"></td></tr>
+			<tr><td>6</td><td></td><td></td></tr>
+		</tbody>
+	</table>
+  
+  
+    </div>
+   
+    
+    </section>
+    
+    <section>
+      <div id="division2">
       <table>
 	<caption>2학년 1학기</caption>
 		<thead>
-			<tr><th> </th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><tr>
+			<tr><th style="width:20px;"> </th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><tr>
 		</thead>
 		<tbody>
 			<tr><td>9</td><td rowspan="3"> </td><td rowspan="2"> </td><td rowspan="2" class="Major1">자료구조<br/>강석훈<br/>24403</td><td></td><td> </td></tr>
 			<tr><td>10</td><td rowspan="2" class="Major4">인터넷<br/>프로그램<br/>우훈식<br/>24403</td><td class="Major3">디지털<br/>논리회로</td></tr>
-			<tr><td>11</td><td rowspan="2" class="Major1">자료구조<br/>강석훈<br/>24403</td><td rowspan="2" class="Major3">디지털<br/>논리회로<br/>김용수<br/>24401</td><td rowspan="2" class="Nmajor2">영어회화<br/>티머시<br/>15309</td></tr>
+			<tr><td>11</td><td rowspan="2" class="Major1">자료구조<br/>강석훈<br/>24403</td><td rowspan="2" class="Major3">디지털<br/>논리회로<br/>김용수<br/>24401</td><td rowspan="2" class="Nmajor2">영어회화2<br/>티머시<br/>15309</td></tr>
 			<tr><td>12</td><td rowspan="3" class="Nmajor1">한국언어<br/><br/>1308</td><td rowspan="3"> </td></tr>
 			<tr><td>1</td><td> </td><td rowspan="3"></td><td rowspan="6"></td></tr>
 			<tr><td>2</td><td rowspan="4" class="Major2">C++<br/>프로그램<br/>정일홍<br/>24414</td></tr>
@@ -91,9 +146,11 @@ td{font-size:12px;}
 			<tr><td>6</td><td></td><td></td></tr>
 		</tbody>
 	</table>
+  
+  
+    </div>
     </section>
-
-    
+  
     </section>
 	
 
