@@ -13,8 +13,9 @@ section li {background-color:pink; color:black; padding:!0px; margin-bottom:10px
 footer {height:10%; font-size:10px; text-align:center; }
 
 div#division1 { width:15%; float:left; font-size:12px;}
-div#division2 { width:35%; float:left; }
-div#division3 { width:35%; float:left; font-size:13px; }
+div#division2 { width:60%; float:left; }
+div#division3 { margin:20px 40px 20px 20px; width:60%; height:400px; float:left; font-size:13px; overflow:scroll; background-color:black; color:white; }
+div#division4 { margin:20px 40px 20px 20px; width:60%; height:400px; float:left; font-size:15px; }
 
 a:link {
 	color:black; background-color:transparent; text-decoration:none; }
@@ -49,12 +50,160 @@ a:active {
 		<div id="division1">
 
 			<ul>
-				<li><a href="https://eunseo0109.github.io/pp/cpp.html"> C++ </a></li>
+				<li><a href="https://eunseo0109.github.io/pp/cpp.html"> Major </a></li>
 				<li><a href="https://eunseo0109.github.io/pp/inp.html"> 인터넷 프로그래밍 </a></li>
 			</ul>
 
 		</div>
-		
+    
+		<div id="division2">
+
+			<img src="/pp/images/음료씨쁠쁠.png" alt="음료" width=100% heigjt=100%>
+
+		</div>
+    
+    <div id="division2">
+
+			adsfasdfasdfsadfasdfasdf
+
+		</div>
+
+		<div id="division3">
+    
+    <xmp>
+#include <iostream>
+#include <string>
+using namespace std;
+
+void input_Data(int *money, int *type, int *num);
+int Compute_Total(int type, int num);
+char Check_Money(int total, int *money);
+void Print_Result(char selection, int total, int money, int type, int num);
+
+int main() {
+	int m_money, m_type, m_num, m_total;
+	char m_selection;
+	char selection;
+
+	do {
+
+		input_Data(&m_money, &m_type, &m_num);
+
+		m_total = Compute_Total(m_type, m_num);
+
+		m_selection = Check_Money(m_total, &m_money);
+
+		Print_Result(m_selection, m_total, m_money, m_type, m_num);
+
+		cout << "음료수를 더 뽑겠습니까? (Y/N) :";
+		cin >> selection;
+
+		while (selection != 'Y' && selection != 'y' && selection != 'N' && selection != 'n') {
+
+			cout << "오직 Y, y, N, n만 입력하시오. : ";
+			cin >> selection;
+
+		}
+
+	} while (selection == 'Y' || selection == 'y');
+
+	cout << "이용해 주셔서 감사합니다." << endl;
+
+	return 0;
+}
+
+void input_Data(int *money, int *type, int *num) {
+
+	cout << "========================음료자판기=================+++=============" << endl;
+	cout << "1.생수 : 500원" << "           2.사이다 : 800원" << "       3.옥수수차 : 1200원" << endl;
+	cout << "===================================================================" << endl;
+
+	cout << "돈을 넣어 주세요 : ";
+	cin >> *money;
+
+	cout << "음료 선택 및 수량 >> ";
+	cin >> *type >> *num;
+
+	return;
+}
+
+int Compute_Total(int type, int num) {
+
+	int total = 0;
+
+	if (type == 1) {
+		type = 500;
+	}
+	else if (type == 2) {
+		type = 800;
+	}
+	else {
+		type = 1200;
+	}
+
+	total = type * num;
+
+	return total;
+
+}
+
+char Check_Money(int total, int *money) {
+
+	char selection = 'y';
+	int c_num, c_numm;
+
+	while (*money < total) {
+
+		c_num = total - *money;
+		cout << "금액이 " << c_num << "원 부족합니다. ";
+
+		cout << "돈을 더 투입하시겠습니까? (Y/N)";
+		cin >> selection;
+
+		while (selection != 'Y' && selection != 'y' && selection != 'N' && selection != 'n') {
+
+			cout << "오직 Y, y, N, n만 입력하시오. : ";
+			cin >> selection;
+
+		}
+
+		if (selection == 'N' || selection == 'n') {
+			break;
+		}
+		cout << "추가 투입금 : ";
+		cin >> c_numm;
+
+		*money += c_numm;
+	}
+
+	return selection;
+}
+
+void Print_Result(char selection, int total, int money, int type, int num) {
+
+	string name[3] = { "생수","사이다","옥수수차" };
+	int x = money - total;
+
+	if (selection == 'Y' || selection == 'y') {
+
+		cout << "현재 금액 : " << money << "입니다." << endl;
+
+		cout << name[type - 1] << " " << num << "개와 잔돈" << x << "원을 받으십시요." << endl << endl;
+
+	}
+	else {
+
+		cout << "투입하신 금액이 부족하여 판매가 취소되었습니다." << endl;
+		cout << "투입하신 돈 " << money << "원을 받으십시요" << endl << endl;
+
+	}
+
+}
+
+    </xmp>
+
+		</div>
+
 	</section>
 	
 	
