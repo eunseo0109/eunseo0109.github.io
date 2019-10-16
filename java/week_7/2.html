@@ -1,0 +1,58 @@
+<!doctype html><!--  1.html  -->
+<html><head><meta chrset="utf-8"/><meta name="viewport" content="width=device-width, inital-scale=1"/>
+
+<style>
+   div#division { width:90%; height:400px; float:left; font-size:18px; overflow:scroll; background-color:white;  border:solid 1px gray; }
+     div#division1 {margin: 410px 0px 0px 0px; }
+</style>
+
+<title> 객체 </title>
+<body>
+
+   <header>
+      <h4> 최은서</h4>
+   </header><br/>
+   <section>
+      <section>
+         <br/><p>소스코드</p>
+         <br/><div id="division">
+                <xmp>
+package org.javaro.lecture;
+
+public class Ex7_2 {
+	public static void main(String[] args) {
+		System.out.println("최은서 - 20191016 - 객체");
+		
+		String name, rank, height, weight, service;
+		
+		name = "홍길동";
+		rank = "1등병";
+		System.out.println(name);
+		System.out.println(rank);
+		height = "170";
+		System.out.println(height);
+		swimming(name);
+		firing(name);
+
+	}
+	static void swimming(String name) {
+		System.out.println(name + "잠수하기");
+	}
+	
+	static void firing(String name) {
+		System.out.println(name + "대포발사");
+	}
+
+}
+
+            </xmp>
+         </div>
+      </section>
+   
+      <section><div id="division1">
+         <br/><p>결과화면</p>
+            <img src="/java/week_7/images/Ex0.png" alt="결과화면" />
+      </section>
+   </section>
+   </body>
+</html>
